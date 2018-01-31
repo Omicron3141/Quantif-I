@@ -1,0 +1,43 @@
+<p>
+  <strong>Name:</strong>
+  <%= @experiment.name %>
+</p>
+ 
+<p>
+  <strong>Description:</strong>
+  <%= @experiment.description %>
+</p>
+
+<p>
+  <strong>Completed:</strong>
+  <%= @experiment.completed %>
+</p>
+<h2>Datapoints</h2>
+<% @experiment.datapoints.each do |datapoint| %>
+  <p>
+    <strong>Value:</strong>
+    <%= datapoint.value %>
+  </p>
+ 
+  <p>
+    <strong>Measured At:</strong>
+    <%= datapoint.measured_at %>
+  </p>
+<% end %>
+<h2>Add a datapoint:</h2>
+<%= form_with(model: [ @experiment, @experiment.datapoints.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :measured_at %><br>
+    <%= form.datetime_field :measured_at %>
+  </p>
+  <p>
+    <%= form.label :value %><br>
+    <%= form.number_field :value %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+ 
+<%= link_to 'Edit', edit_experiment_path(@experiment) %> |
+<%= link_to 'Back', experiments_path %>

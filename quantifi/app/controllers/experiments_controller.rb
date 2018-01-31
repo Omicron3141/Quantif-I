@@ -1,7 +1,8 @@
 class ExperimentsController < ApplicationController
 
 	def index
-        @experiments = Experiment.all
+        @active_experiments = Experiment.where(completed: false)
+        @inactive_experiments = Experiment.where(completed: true)
 	end
 
 	def show

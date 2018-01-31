@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+div.light-green {
+	background-color: #c4d9c6;
+}
+
+body.dark-green{
+	color: #0a1f1d;
+}
+
+a.button-orange{
+	background-color: #f9893e;
+	border: 1px solid #F88132;
+}

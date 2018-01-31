@@ -1,3 +1,20 @@
 // Place all the styles related to the Experiments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+tr.table-header{
+	background-color: #176320;
+	color: #fff;
+}
+
+th, td {
+    padding: 15px;
+    width: auto;
+    text-align: left;
+    border-bottom: 1px solid #176320;
+}
+
+.experiment-table {
+	width: auto;
+	border: 1px solid #176320;
+}

@@ -54,3 +54,20 @@ input.button-orange{
 	background-color: #f9893e;
 	border: 1px solid #F88132;
 }
+
+.field td {
+	border: none;
+}
+
+.field:hover {
+	background-color: #c4d9c6;
+}
+
+.name {
+	width: 500px;
+}
+
+.description {
+	width: 500px;
+	height: 100px;
+}

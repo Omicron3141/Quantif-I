@@ -1,5 +1,4 @@
 <%= form_with model: @experiment, local: true, html: {:class => "form-horizontal"} do |form| %>
- 
   <% if @experiment.errors.any? %>
     <div id="error_explanation" class="alert alert-danger">
       <h2>
@@ -14,22 +13,21 @@
     </div>
   <% end %>
   <table>
-  <tr class="field">
-    <td><%= form.label :name,  :class => "control-label"  %></td>
-    <td><%= form.text_field :name,  :class => "name" %></td>
-  </tr>
- 
-  <tr class="field">
-    <td><%= form.label :description,  :class => "control-label"  %></td>
-    <td><%= form.text_area :description, :class => "description" %></td>
-  </tr>
+    <tr class="field">
+      <td><%= form.label :name,  :class => "control-label"  %></td>
+      <td><%= form.text_field :name,  :class => "name" %></td>
+    </tr>
+   
+    <tr class="field">
+      <td><%= form.label :description,  :class => "control-label"  %></td>
+      <td><%= form.text_area :description, :class => "description" %></td>
+    </tr>
 
-  <tr class="field">
-    <td><%= form.label :completed,  :class => "control-label"  %></td>
-    <td><%= form.check_box :completed %></td>
-  </tr>
- </table>
-    <%= form.submit "Confirm", class: "btn btn-lg btn-default btn-primary button-orange"%>
-    <%= link_to cancel_text, cancel_path, class: "btn btn-primary btn-lg button-orange" %>
-
+    <tr class="field">
+      <td><%= form.label :completed,  :class => "control-label"  %></td>
+      <td><%= form.check_box :completed %></td>
+    </tr>
+  </table>
+  <%= form.submit "Confirm", class: "btn btn-lg btn-default btn-primary button-orange"%>
+  <%= link_to cancel_text, cancel_path, class: "btn btn-primary btn-lg button-orange" %>
 <% end %>

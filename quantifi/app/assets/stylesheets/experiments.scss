@@ -7,14 +7,50 @@ tr.table-header{
 	color: #fff;
 }
 
-th, td {
+td {
     padding: 15px;
     width: auto;
-    text-align: left;
-    border-bottom: 1px solid #176320;
+    border-bottom: 1px solid #239530;
+}
+
+th{
+    padding: 15px;
+    width: auto;
+    text-align: center;
+    border-bottom: 1px solid #239530;
+}
+
+tbody tr:hover {
+	background-color: #D4F2D7;
+}
+
+.border-right{
+    border-right: 1px solid #239530;
 }
 
 .experiment-table {
 	width: auto;
-	border: 1px solid #176320;
+}
+
+.al-r{
+	text-align: right;
+}
+
+span.icon-link {
+	color: #111;
+	font-size: 25px;
+}
+
+span.icon-link:hover {
+	color: #176320;
+}
+
+a.button-orange{
+	background-color: #f9893e;
+	border: 1px solid #F88132;
+}
+
+input.button-orange{
+	background-color: #f9893e;
+	border: 1px solid #F88132;
 }

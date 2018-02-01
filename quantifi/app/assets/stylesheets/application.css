@@ -25,3 +25,9 @@ body.dark-green{
 	background-color: #f9893e;
 	border: 1px solid #F88132;
 }
+
+.footer{
+	margin-top:-20px;
+	margin-bottom: 20px;
+	font-size: 7pt;
+}

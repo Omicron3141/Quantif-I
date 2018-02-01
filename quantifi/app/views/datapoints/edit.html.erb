@@ -1,0 +1,36 @@
+<center>
+  <br>
+    <div class="jumbotron col-lg-10 col-lg-offset-1 light-green">
+
+    	<h1>Edit Datapoint</h1>
+    	<hr>
+<%= form_for [@experiment, @datapoint], local: true, html: {:class => "form-horizontal"} do |form| %>
+ 
+  <% if @datapoint.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <h2>
+        <%= pluralize(@datapoint.errors.count, "error") %> prohibited
+        this datapoint from being saved:
+      </h2>
+      <ul>
+        <% @datapoint.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+	  <table>
+		<tr class="field">
+	    	<td><%= form.label :measured_at, :class => "col-md-4 control-label"%></td>
+	    	<td><%= form.datetime_field :measured_at %></td>
+	  	</tr> 
+	  	<tr class="field">
+		    <td><%= form.label :value,  :class => "col-md-4 control-label" %></td>
+		    <td><%= form.number_field :value %></td>
+	  	</tr>
+	 </table>
+    <%= form.submit "Update", class: "btn btn-lg btn-default btn-primary button-orange"%>
+    <%= link_to "Cancel", experiment_path(@datapoint.experiment_id), class: "btn btn-primary btn-lg button-orange" %>
+<% end %>
+</div>
+</center>

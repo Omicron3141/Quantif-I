@@ -24,7 +24,7 @@
       <td><%= datapoint.measured_at.strftime("%A, %b %e %Y") %></td>
       <td><%= datapoint.measured_at.strftime("%l:%M:%S %p %Z") %></td>
       <td class="border-right"><%= datapoint.value %></td>
-      <td><%= link_to raw("<span class='fa fa-edit icon-link'></span>"), edit_experiment_datapoint_path(datapoint) %></td>
+      <td><%= link_to raw("<span class='fa fa-edit icon-link'></span>"), edit_experiment_datapoint_path(datapoint.experiment.id, datapoint.id) %></td>
       <td><%= link_to raw("<span class='fa fa-trash icon-link'></span>"), [datapoint.experiment, datapoint],
                method: :delete,
                data: { confirm: 'Are you sure?' } %></td>

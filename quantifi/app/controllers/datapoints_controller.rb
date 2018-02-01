@@ -13,7 +13,8 @@ class DatapointsController < ApplicationController
 	end
 
 	def edit
-        @datapoint = Datapoint.find(params[:id])
+    	@experiment = Experiment.find(params[:experiment_id])
+        @datapoint = @experiment.datapoints.find(params[:id])
 	end
   	def update
 	  @datapoint = Datapoint.find(params[:id])

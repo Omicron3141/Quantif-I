@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  value: 
+  measured_at: 2018-01-30 19:45:39
+  experiment: one
+
+two:
+  value: 
+  measured_at: 2018-01-30 19:45:39
+  experiment: two

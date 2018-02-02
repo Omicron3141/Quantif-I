@@ -3,7 +3,7 @@
     <div class="jumbotron col-lg-10 col-lg-offset-1 light-green">
     	<h1>Edit Datapoint</h1>
     	<hr>
-		<%= form_for [@experiment, @datapoint], local: true, html: {:class => "form-horizontal"} do |form| %>
+		<%= form_for [@user, @experiment, @datapoint], local: true, html: {:class => "form-horizontal"} do |form| %>
 		  <% if @datapoint.errors.any? %>
 		    <div id="error_explanation" class="alert alert-danger">
 		      <h2>
@@ -28,7 +28,7 @@
 			  	</tr>
 			 </table>
 		    <%= form.submit "Update", class: "btn btn-lg btn-default btn-primary button-orange"%>
-		    <%= link_to "Cancel", experiment_path(@datapoint.experiment_id), class: "btn btn-primary btn-lg button-orange" %>
+		    <%= link_to "Cancel", user_experiment_path(@user, @datapoint.experiment_id), class: "btn btn-primary btn-lg button-orange" %>
 		<% end %>
 	</div>
 </center>

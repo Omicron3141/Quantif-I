@@ -3,7 +3,7 @@
   <div class="jumbotron col-lg-10 col-lg-offset-1 light-green">
     <h1>All Your Experiments</h1>
     <hr>
-    <%= link_to "New Experiment", new_experiment_path, class: "btn btn-primary button-orange" %>
+    <%= link_to "New Experiment", new_user_experiment_path(@user), class: "btn btn-primary button-orange" %>
     <hr>
     <br>
     <table class="experiment-table">
@@ -23,9 +23,9 @@
             <td><%= active_experiment.created_at.strftime("%b %e %Y") %></td>
             <td ><%= truncate active_experiment.description, length: 85, separator: /\w+/ %></td>
             <td class="border-right"><span class='fa fa-check'></span></td>
-            <td><%= link_to raw("<span class='fa fa-pie-chart icon-link'></span>"), experiment_path(active_experiment) %></td>
-            <td><%= link_to raw("<span class='fa fa-edit icon-link'></span>"), edit_experiment_path(active_experiment) %></td>
-            <td><%= link_to raw("<span class='fa fa-trash icon-link'></span>"), experiment_path(active_experiment),
+            <td><%= link_to raw("<span class='fa fa-pie-chart icon-link'></span>"), user_experiment_path(@user, active_experiment) %></td>
+            <td><%= link_to raw("<span class='fa fa-edit icon-link'></span>"), edit_user_experiment_path(@user, active_experiment) %></td>
+            <td><%= link_to raw("<span class='fa fa-trash icon-link'></span>"), user_experiment_path(@user, active_experiment),
                     method: :delete,
                     data: { confirm: 'Are you sure?' } %></td>
 
@@ -38,9 +38,9 @@
             <td><%= truncate inactive_experiment.description, length: 85, separator: /\w+/ %></td>
             <td class="border-right"><span class='fa fa-times'></span></td>
 
-                  <td><%= link_to raw("<span class='fa fa-pie-chart icon-link'></span>"), experiment_path(inactive_experiment) %></td>
-            <td><%= link_to raw("<span class='fa fa-edit icon-link'></span>"), edit_experiment_path(inactive_experiment) %></td>
-            <td><%= link_to raw("<span class='fa fa-trash icon-link'></span>"), experiment_path(inactive_experiment),
+                  <td><%= link_to raw("<span class='fa fa-pie-chart icon-link'></span>"), user_experiment_path(@user, inactive_experiment) %></td>
+            <td><%= link_to raw("<span class='fa fa-edit icon-link'></span>"), edit_user_experiment_path(@user, inactive_experiment) %></td>
+            <td><%= link_to raw("<span class='fa fa-trash icon-link'></span>"), user_experiment_path(@user, inactive_experiment),
                     method: :delete,
                     data: { confirm: 'Are you sure?' } %></td>
 

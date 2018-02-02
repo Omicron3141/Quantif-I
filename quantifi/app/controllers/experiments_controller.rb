@@ -1,46 +1,53 @@
 class ExperimentsController < ApplicationController
 
 	def index
-        @active_experiments = Experiment.where(completed: false)
-        @inactive_experiments = Experiment.where(completed: true)
+        @user = User.find(params[:user_id])
+        @active_experiments = @user.experiments.where(completed: false)
+        @inactive_experiments = @user.experiments.where(completed: true)
 	end
 
 	def show
-    	@experiment = Experiment.find(params[:id])
+        @user = User.find(params[:user_id])
+    	@experiment = @user.experiments.find(params[:id])
   	end
 
 	def new
-		@experiment = Experiment.new
+        @user = User.find(params[:user_id])
+		@experiment = @user.experiments.new
   	end
 
   	def create
-  		@experiment = Experiment.new(experiment_params)
+        @user = User.find(params[:user_id])
+  		@experiment = @user.experiments.create(experiment_params)
  
 		if @experiment.save
-			redirect_to @experiment
+			redirect_to user_path(@user)
   		else
     		render 'new'
   		end
   	end
 
 	def edit
-        @experiment = Experiment.find(params[:id])
+        @user = User.find(params[:user_id])
+        @experiment = @user.experiments.find(params[:id])
 	end
+
   	def update
-	  @experiment = Experiment.find(params[:id])
+      @user = User.find(params[:user_id])
+	  @experiment = @user.experiments.find(params[:id])
 	 
 	  if @experiment.update(experiment_params)
-	    redirect_to @experiment
+	    redirect_to @experiment.user
 	  else
 	    render 'edit'
 	  end
 	end
 
 	def destroy
-	  @experiment = Experiment.find(params[:id])
+      @user = User.find(params[:user_id])
+	  @experiment = @user.experiments.find(params[:id])
 	  @experiment.destroy
-	 
-	  redirect_to experiments_path
+	  redirect_to user_path(@user)
 	end
 
   	private

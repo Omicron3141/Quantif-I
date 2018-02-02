@@ -1,7 +1,6 @@
-<%= form_with model: @user, local: true do |form| %>
- 
+<%= form_with model: @user, local: true, html: {:class => "form-horizontal"} do |form| %>
   <% if @user.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="alert alert-danger">
       <h2>
         <%= pluralize(@user.errors.count, "error") %> prohibited
         this user from being saved:
@@ -13,19 +12,17 @@
       </ul>
     </div>
   <% end %>
- 
-  <p>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-  </p>
- 
-  <p>
-    <%= form.label :email %><br>
-    <%= form.text_field :email %>
-  </p>
- 
-  <p>
-    <%= form.submit %>
-  </p>
- 
+  <table>
+    <tr class="field">
+      <td><%= form.label :name,  :class => "control-label"  %></td>
+      <td><%= form.text_field :name,  :class => "name" %></td>
+    </tr>
+   
+    <tr class="field">
+      <td><%= form.label :email,  :class => "control-label"  %></td>
+      <td><%= form.text_field :email, :class => "email" %></td>
+    </tr>
+  </table>
+  <%= form.submit "Confirm", class: "btn btn-lg btn-default btn-primary button-orange"%>
+  <%= link_to cancel_text, cancel_path, class: "btn btn-primary btn-lg button-orange" %>
 <% end %>

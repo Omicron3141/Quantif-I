@@ -1,4 +1,4 @@
-<%= form_with model: @experiment, local: true, html: {:class => "form-horizontal"} do |form| %>
+<%= form_for [@user, @experiment], local: true, html: {:class => "form-horizontal"} do |form| %>
   <% if @experiment.errors.any? %>
     <div id="error_explanation" class="alert alert-danger">
       <h2>

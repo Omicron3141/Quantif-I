@@ -1,3 +1,73 @@
 // Place all the styles related to the Experiments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+tr.table-header{
+	background-color: #176320;
+	color: #fff;
+}
+
+td {
+    padding: 15px;
+    width: auto;
+    border-bottom: 1px solid #239530;
+}
+
+th{
+    padding: 15px;
+    width: auto;
+    text-align: center;
+    border-bottom: 1px solid #239530;
+}
+
+tbody tr:hover {
+	background-color: #D4F2D7;
+}
+
+.border-right{
+    border-right: 1px solid #239530;
+}
+
+.experiment-table {
+	width: auto;
+}
+
+.al-r{
+	text-align: right;
+}
+
+span.icon-link {
+	color: #111;
+	font-size: 25px;
+}
+
+span.icon-link:hover {
+	color: #176320;
+}
+
+a.button-orange{
+	background-color: #f9893e;
+	border: 1px solid #F88132;
+}
+
+input.button-orange{
+	background-color: #f9893e;
+	border: 1px solid #F88132;
+}
+
+.field td {
+	border: none;
+}
+
+.field:hover {
+	background-color: #c4d9c6;
+}
+
+.name {
+	width: 500px;
+}
+
+.description {
+	width: 500px;
+	height: 100px;
+}

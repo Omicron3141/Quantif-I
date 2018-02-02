@@ -1,3 +1,9 @@
-<h1>Edit Experiment</h1>
-<%= render 'form' %>
-<%= link_to 'Back', experiments_path %>
+<center>
+  	<br>
+    <div class="jumbotron col-lg-10 col-lg-offset-1 light-green">
+
+    	<h1>Edit Experiment</h1>
+    	<hr>
+		<%= render partial: 'form', locals: {cancel_path: experiment_path(@experiment), cancel_text: "Cancel"} %>
+	</div>
+</center>

@@ -1,24 +1,52 @@
-<h1>Listing Experiments</h1>
- 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Completed</th>
-    <th colspan="3"></th>
-  </tr>
- 
-  <% @experiments.each do |experiment| %>
-    <tr>
-      <td><%= experiment.name %></td>
-      <td><%= experiment.description %></td>
-      <td><%= experiment.completed %></td>
-      <td><%= link_to 'Show', experiment_path(experiment) %></td>
-      <td><%= link_to 'Edit', edit_experiment_path(experiment) %></td>
-      <td><%= link_to 'Destroy', experiment_path(experiment),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
+<center>
+  <br>
+  <div class="jumbotron col-lg-10 col-lg-offset-1 light-green">
+    <h1>All Your Experiments</h1>
+    <hr>
+    <%= link_to "New Experiment", new_experiment_path, class: "btn btn-primary button-orange" %>
+    <hr>
+    <br>
+    <table class="experiment-table">
+      <thead>
+        <tr class="table-header col-lg-12">
+          <th style="width: 20%; text-align: right;">Name</th>
+          <th style="width: 10%; text-align: center;">Created On</th>
+          <th style="width: 50%; text-align: center;">Description</th>
+          <th style="width: 5%; text-align: center;">Active</th>
+          <th style="width: 15%; text-align: center;" colspan="3">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @active_experiments.each do |active_experiment| %>
+          <tr >
+            <td class="al-r"><%= active_experiment.name %></td>
+            <td><%= active_experiment.created_at.strftime("%b %e %Y") %></td>
+            <td ><%= truncate active_experiment.description, length: 85, separator: /\w+/ %></td>
+            <td class="border-right"><span class='fa fa-check'></span></td>
+            <td><%= link_to raw("<span class='fa fa-pie-chart icon-link'></span>"), experiment_path(active_experiment) %></td>
+            <td><%= link_to raw("<span class='fa fa-edit icon-link'></span>"), edit_experiment_path(active_experiment) %></td>
+            <td><%= link_to raw("<span class='fa fa-trash icon-link'></span>"), experiment_path(active_experiment),
+                    method: :delete,
+                    data: { confirm: 'Are you sure?' } %></td>
 
-    </tr>
-  <% end %>
-</table>
+          </tr>
+        <% end %>
+        <% @inactive_experiments.each do |inactive_experiment| %>
+          <tr>
+            <td class="al-r"><%= inactive_experiment.name %></td>
+            <td><%= inactive_experiment.created_at.strftime("%b %e %Y") %></td>
+            <td><%= truncate inactive_experiment.description, length: 85, separator: /\w+/ %></td>
+            <td class="border-right"><span class='fa fa-times'></span></td>
+
+                  <td><%= link_to raw("<span class='fa fa-pie-chart icon-link'></span>"), experiment_path(inactive_experiment) %></td>
+            <td><%= link_to raw("<span class='fa fa-edit icon-link'></span>"), edit_experiment_path(inactive_experiment) %></td>
+            <td><%= link_to raw("<span class='fa fa-trash icon-link'></span>"), experiment_path(inactive_experiment),
+                    method: :delete,
+                    data: { confirm: 'Are you sure?' } %></td>
+
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</center>

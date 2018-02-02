@@ -1,43 +1,64 @@
-<p>
-  <strong>Name:</strong>
-  <%= @experiment.name %>
-</p>
- 
-<p>
-  <strong>Description:</strong>
-  <%= @experiment.description %>
-</p>
+<center>
+  <br>
+    <div class="jumbotron col-lg-10 col-lg-offset-1 light-green">
+      <h1><%= @experiment.name %></h1>
+      <hr>
+      <div class = "container">
+        <div class="row">
+          <div class="col-lg-7 border-right">
+          <h2>Datapoints</h2>
+          <table class="experiment-table">
+            <thead>
+              <tr class="table-header">
+                <th style="width: 35%; text-align: right;">Date</th>
+                <th style="width: 35%; text-align: center;">Time</th>
+                <th style="width: 10%; text-align: center;">Value</th>
+                <th style="width: 20%; text-align: center;" colspan="2">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @experiment.datapoints.each do |datapoint| %>
+                <tr>
+                  <td><%= datapoint.measured_at.strftime("%A, %b %e %Y") %></td>
+                  <td><%= datapoint.measured_at.strftime("%l:%M:%S %p %Z") %></td>
+                  <td class="border-right"><%= datapoint.value %></td>
+                  <td><%= link_to raw("<span class='fa fa-edit icon-link'></span>"), edit_experiment_datapoint_path(datapoint.experiment.id, datapoint.id) %></td>
+                  <td><%= link_to raw("<span class='fa fa-trash icon-link'></span>"), [datapoint.experiment, datapoint],
+                           method: :delete,
+                           data: { confirm: 'Are you sure?' } %></td>
 
-<p>
-  <strong>Completed:</strong>
-  <%= @experiment.completed %>
-</p>
-<h2>Datapoints</h2>
-<% @experiment.datapoints.each do |datapoint| %>
-  <p>
-    <strong>Value:</strong>
-    <%= datapoint.value %>
-  </p>
- 
-  <p>
-    <strong>Measured At:</strong>
-    <%= datapoint.measured_at %>
-  </p>
-<% end %>
-<h2>Add a datapoint:</h2>
-<%= form_with(model: [ @experiment, @experiment.datapoints.build ], local: true) do |form| %>
-  <p>
-    <%= form.label :measured_at %><br>
-    <%= form.datetime_field :measured_at %>
-  </p>
-  <p>
-    <%= form.label :value %><br>
-    <%= form.number_field :value %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
- 
-<%= link_to 'Edit', edit_experiment_path(@experiment) %> |
-<%= link_to 'Back', experiments_path %>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          </div>
+          <div class = "col-lg-5">
+            <% if @experiment.completed %>
+             INACTIVE
+            <% end %>
+            <p>
+              <%= @experiment.description %>
+            </p>
+            <hr>
+            <%= link_to "Edit Experiment", edit_experiment_path(@experiment), class: "btn btn-primary btn-lg button-orange" %>
+            <%= link_to "All Experiments", experiments_path, class: "btn btn-primary btn-lg button-orange" %>
+            <hr>
+            <h2>Record Data</h2>
+            <%= form_with(model: [ @experiment, @experiment.datapoints.build ], local: true, html: {:class => "form-horizontal", :style => "text-align: left;"})  do |form| %>
+              <div class="field">
+                <%= form.label :measured_at, :class => "col-md-4 control-label"%>
+                <%= form.datetime_field :measured_at %>
+              </div> 
+              <div class="field">
+
+                <%= form.label :value,  :class => "col-md-4 control-label" %>
+                <%= form.number_field :value %>
+              </div>
+              <center>
+                <%= form.submit "Record", class: "btn btn-default btn-primary button-orange"%>
+              </center>
+            <% end %>
+          </div>
+      </div>
+  </div>
+</div>

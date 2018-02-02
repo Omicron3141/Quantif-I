@@ -3,7 +3,7 @@ class CreateExperiments < ActiveRecord::Migration[5.1]
     create_table :experiments do |t|
       t.string :name
       t.text :description
-      t.boolean :completed, :default => 0 # default completed to false
+      t.boolean :completed, default: true# default completed to false
 
       t.timestamps
     end

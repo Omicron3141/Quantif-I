@@ -15,5 +15,5 @@ https://stackoverflow.com/questions/9503554/ruby-substring-to-a-certain-length-a
 https://www.ruby-forum.com/topic/78603
 https://stackoverflow.com/questions/21710486/rails-bootstrap-how-to-format-form-for-width-grid-collapses
 https://stackoverflow.com/questions/6672454/passing-parameters-to-partial-view
-
+http://www.rubydoc.info/gems/chartkick/2.2.5
 

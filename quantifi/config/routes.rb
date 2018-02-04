@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   get 'homepage/index'
 
   resources :users do
-      resources :experiments do
-      	resources :datapoints
-      end
+    resources :experiments do
+      resources :datapoints
+    end
   end
 
   root 'homepage#index'

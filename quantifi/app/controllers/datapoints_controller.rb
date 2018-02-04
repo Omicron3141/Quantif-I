@@ -15,9 +15,9 @@ class DatapointsController < ApplicationController
 	end
 
 	def edit
-        @user = User.find(params[:user_id])
-        @experiment = @user.experiments.find(params[:experiment_id])
-        @datapoint = @experiment.datapoints.find(params[:id])
+      @user = User.find(params[:user_id])
+      @experiment = @user.experiments.find(params[:experiment_id])
+      @datapoint = @experiment.datapoints.find(params[:id])
 	end
 
   	def update

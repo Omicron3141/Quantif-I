@@ -22,6 +22,11 @@
       <td><%= form.label :email,  :class => "control-label"  %></td>
       <td><%= form.text_field :email, :class => "email" %></td>
     </tr>
+
+    <tr class="field">
+      <td><%= form.label :password,  :class => "control-label"  %></td>
+      <td><%= form.text_field :password, :class => "password" %></td>
+    </tr>
   </table>
   <%= form.submit "Confirm", class: "btn btn-lg btn-default btn-primary button-orange"%>
   <%= link_to cancel_text, cancel_path, class: "btn btn-primary btn-lg button-orange" %>

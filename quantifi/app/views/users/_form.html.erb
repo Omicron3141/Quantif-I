@@ -20,12 +20,17 @@
    
     <tr class="field">
       <td><%= form.label :email,  :class => "control-label"  %></td>
-      <td><%= form.text_field :email, :class => "email" %></td>
+      <td><%= form.email_field :email, :class => "email" %></td>
     </tr>
 
     <tr class="field">
       <td><%= form.label :password,  :class => "control-label"  %></td>
-      <td><%= form.text_field :password, :class => "password" %></td>
+      <td><%= form.password_field :password, :class => "password" %></td>
+    </tr>
+
+    <tr class="field">
+      <td><%= form.label :password_confirmation,  :class => "control-label"  %></td>
+      <td><%= form.password_field :password_confirmation, :class => "password" %></td>
     </tr>
   </table>
   <%= form.submit "Confirm", class: "btn btn-lg btn-default btn-primary button-orange"%>

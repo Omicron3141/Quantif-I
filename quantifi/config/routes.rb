@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   get 'homepage/index'
 
   resources :experiments do
-  	resources :datapoints
+  	get 'graph', to: 'experiments#graph', as: 'graph'
+    resources :datapoints
   end
 
   root 'homepage#index'

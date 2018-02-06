@@ -35,3 +35,5 @@ https://stackoverflow.com/questions/6672454/passing-parameters-to-partial-view
 http://www.rubydoc.info/gems/chartkick/2.2.5
 https://www.railstutorial.org/book/modeling_users
 
+https://stackoverflow.com/questions/24622826/how-to-set-up-and-use-a-rails-routes-prefix
+

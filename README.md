@@ -34,3 +34,6 @@ https://stackoverflow.com/questions/21710486/rails-bootstrap-how-to-format-form-
 https://stackoverflow.com/questions/6672454/passing-parameters-to-partial-view
 https://www.railstutorial.org/book/modeling_users
 
+https://www.codewithjason.com/put-rails-modules/
+http://guides.rubyonrails.org/testing.html
+https://stackoverflow.com/questions/18728921/floats-decimals-or-integers

@@ -15,6 +15,24 @@
   </head>
 
   <body class="dark-green">
+  	<nav class="navbar navbar-toggleable-md navbar-light bg-faded navbar-main">
+	  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+	  <a class="navbar-brand" href="/"><img src="/assets/Quantifi.png" class="navbar-im"></a>
+	  <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+	    <div class="navbar-nav">
+	      <a class="nav-item nav-link" href="/"><span class="fa fa-home"></span> Home</a>
+	      <% if logged_in? %>
+	      	<%= link_to raw("<span class='fa fa-user'></span> Profile"), user_path(current_user), class: "nav-item nav-link" %>
+		    <%= link_to raw("<span class='fa fa-flask'></span> Experiments"), user_experiments_path(current_user), class: "nav-item nav-link" %>
+		    <%= link_to raw("<span class='fa fa-cog'></span> Settings"), edit_user_path(current_user), class: "nav-item nav-link" %>
+	      <% else %>
+	      	<span class="nav-item nav-link" href="#">You're logged out. <%= link_to "Log In", { controller: 'sessions', action: 'new' }%> or <%= link_to "Sign Up", { controller: 'users', action: 'new' }%><span>
+	      <% end %>
+	    </div>
+	  </div>
+	</nav>
     <%= yield %>
 
   	<center class="footer">Quantif-I ©2018. A Harvey Mudd College CS121 Project by Mary Clare Shen, Kate Woolverton, and Jonah Rubin. For educational purposes only.</center>

@@ -40,11 +40,11 @@
               <%= @experiment.description %>
             </p>
             <hr>
-            <%= link_to "Edit Experiment", edit_user_experiment_path(@experiment), class: "btn btn-primary btn-lg button-orange" %>
+            <%= link_to "Edit Experiment", edit_user_experiment_path(@user), class: "btn btn-primary btn-lg button-orange" %>
             <%= link_to "All Experiments", user_experiments_path(@user), class: "btn btn-primary btn-lg button-orange" %>
             <hr>
             <h2>Record Data</h2>
-            <%= form_with(model: [ @user, @experiment, @experiment.datapoints.build ], local: true, html: {:class => "form-horizontal", :style => "text-align: left;"})  do |form| %>
+            <%= form_with(model: [ @user, @experiment, @new_datapoint ], local: true, html: {:class => "form-horizontal", :style => "text-align: left;"})  do |form| %>
               <div class="field">
                 <%= form.label :measured_at, :class => "col-md-4 control-label"%>
                 <%= form.datetime_field :measured_at %>

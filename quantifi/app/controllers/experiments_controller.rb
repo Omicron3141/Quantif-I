@@ -9,6 +9,8 @@ class ExperimentsController < ApplicationController
 	def show
       @user = User.find(params[:user_id])
       @experiment = @user.experiments.find(params[:id])
+      @new_datapoint = Datapoint.new
+      @new_datapoint.measured_at = Time.now
   	end
 
 	def new
@@ -37,7 +39,7 @@ class ExperimentsController < ApplicationController
 	  @experiment = @user.experiments.find(params[:id])
 
 	  if @experiment.update(experiment_params)
-	    redirect_to @experiment.user
+	    redirect_to user_experiment_path(@user, @experiment)
 	  else
 	    render 'edit'
 	  end

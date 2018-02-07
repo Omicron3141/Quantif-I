@@ -1,22 +1,36 @@
-<% flash.each do |message_type, message| %>
-  <div class="alert alert-<%= message_type %>"><%= message %></div>
-<% end %>
-<% provide(:title, "Log in") %>
-<h1>Log in</h1>
-
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(:session, url: login_path) do |f| %>
-
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-
-      <%= f.submit "Log in", class: "btn btn-primary btn-lg button-orange" %>
+<center>
+  <br>
+  <div class="jumbotron col-lg-10 col-lg-offset-1 light-green container">
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
     <% end %>
+    <% provide(:title, "Log in") %>
+    <h1>Log in</h1>
 
-    <p>New user? <%= link_to "Sign up", new_user_path %></p>
+    <div class="row">
+      <div class="col-lg-4 offset-lg-4">
+        <%= form_for(:session, url: login_path) do |f| %>
+          <div class="field row">
+            <%= f.label :email %>
+            <div class="input-group row">
+              <div class="input-group-addon col-lg-1"><span class=" fa fa-envelope-square"></span></div>
+              <%= f.email_field :email, class: 'form-control col-lg-11' %>
+            </div>
+          </div>
+          <hr>
+          <div class="field row">
+            <%= f.label :password %>
+            <div class="input-group row">
+              <div class="input-group-addon col-lg-1"><span class=" fa fa-lock"></span></div>
+              <%= f.password_field :password, class: 'form-control col-lg-11' %>
+            </div>
+          </div>
+
+          <%= f.submit "Log in", class: "btn btn-primary btn-lg button-orange pad-top" %>
+        <% end %>
+
+        <p>New user? <%= link_to "Sign up", new_user_path %></p>
+      </div>
+    </div>
   </div>
-</div>
+</center>

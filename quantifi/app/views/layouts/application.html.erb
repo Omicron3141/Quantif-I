@@ -26,6 +26,8 @@
 	      	<%= link_to raw("<span class='fa fa-user'></span> "+current_user.name), user_path(current_user), class: "nav-item nav-link" %>
 		    <%= link_to raw("<span class='fa fa-flask'></span> My Experiments"), user_experiments_path(current_user), class: "nav-item nav-link" %>
 		    <%= link_to raw("<span class='fa fa-cog'></span> Settings"), edit_user_path(current_user), class: "nav-item nav-link" %>
+		    <%= link_to raw("<span class='fa fa-sign-out'></span> Log Out"), "/logout", method: :delete, class: "nav-item nav-link" %>
+
 	      <% else %>
 	      	<span class="nav-item nav-link" href="#">You're logged out. <%= link_to "Log In", { controller: 'sessions', action: 'new' }%> or <%= link_to "Sign Up", { controller: 'users', action: 'new' }%><span>
 	      <% end %>

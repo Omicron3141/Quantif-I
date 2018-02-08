@@ -49,7 +49,7 @@ class ExperimentsController < ApplicationController
       @user = User.find(params[:user_id])
 	  @experiment = @user.experiments.find(params[:id])
 	  @experiment.destroy
-	  redirect_to user_path(@user)
+	  redirect_to user_experiments_path(@user)
 	end
 
   	private

@@ -21,9 +21,14 @@ body.dark-green{
 	color: #0a1f1d;
 }
 
-.button-orange{
+a.button-orange{
 	background-color: #f9893e;
 	border: 1px solid #F88132;
+}
+
+a.button-orange:hover{
+	background-color: #CF5706;
+	border: 1px solid #CF5707;
 }
 
 .footer{

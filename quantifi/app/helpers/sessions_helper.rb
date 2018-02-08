@@ -17,4 +17,13 @@ module SessionsHelper
     @current_user = nil
   end
 
+  def not_found
+    render 'sessions/unauthorized'
+  end
+
+  def proper_user(user)
+    if session[:user_id] != user.id
+      not_found
+    end
+  end
 end

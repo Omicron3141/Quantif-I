@@ -1,6 +1,7 @@
 class DatapointsController < ApplicationController
 	def create
       @user = User.find(params[:user_id])
+      proper_user(@user)
 	  @experiment = @user.experiments.find(params[:experiment_id])
 	  @datapoint = @experiment.datapoints.create(datapoint_params)
 	  redirect_to user_experiment_path(@user, @experiment)
@@ -8,6 +9,7 @@ class DatapointsController < ApplicationController
 
     def destroy
 	  @user = User.find(params[:user_id])
+      proper_user(@user)
       @experiment = @user.experiments.find(params[:experiment_id])
       @datapoint = @experiment.datapoints.find(params[:id])
       @datapoint.destroy
@@ -16,12 +18,14 @@ class DatapointsController < ApplicationController
 
 	def edit
       @user = User.find(params[:user_id])
+      proper_user(@user)
       @experiment = @user.experiments.find(params[:experiment_id])
       @datapoint = @experiment.datapoints.find(params[:id])
 	end
 
   	def update
 	  @user = User.find(params[:user_id])
+      proper_user(@user)
       @experiment = @user.experiments.find(params[:experiment_id])
       @datapoint = @experiment.datapoints.find(params[:id])
 	 

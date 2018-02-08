@@ -16,4 +16,4 @@ https://www.ruby-forum.com/topic/78603
 https://stackoverflow.com/questions/21710486/rails-bootstrap-how-to-format-form-for-width-grid-collapses
 https://stackoverflow.com/questions/6672454/passing-parameters-to-partial-view
 
-
+https://stackoverflow.com/questions/5739158/rails-ruby-how-to-sort-an-array

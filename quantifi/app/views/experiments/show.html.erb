@@ -17,7 +17,7 @@
               </tr>
             </thead>
             <tbody>
-              <% @experiment.datapoints.each do |datapoint| %>
+              <% @experiment.datapoints.sort_by(&:measured_at).reverse.each do |datapoint| %>
                 <tr>
                   <td><%= datapoint.measured_at.strftime("%A, %b %e %Y") %></td>
                   <td><%= datapoint.measured_at.strftime("%l:%M:%S %p %Z") %></td>

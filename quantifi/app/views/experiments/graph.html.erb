@@ -1,11 +1,11 @@
 <center><br>
     <div class="jumbotron col-lg-10 col-lg-offset-1 light-green">
-        <h1 class="display-3">Experiment name will go here</h1>
-        <h2></h2>
+        <h1><%= @experiment.name %></h1>
         <hr>
-        <p>The graph will go here</p>
-        <p> maybe there's a form for adding labels or something</p>
-        <%= link_to "Back to All Experiments", experiments_path, class: "btn btn-primary btn-lg button-orange" %></p>
+        <%= line_chart Datapoint.pluck(:measured_at, :value), xtitle: "Time", ytitle: "Value", download: true %>
+        <hr>
+        <%= scatter_chart Datapoint.pluck(:measured_at, :value), xtitle: "Time", ytitle: "Value", download: true %>
+        <%= link_to "Back to Experiment", experiment_path(@experiment), class: "btn btn-primary btn-lg button-orange" %></p>
     </div>
 
 </center>

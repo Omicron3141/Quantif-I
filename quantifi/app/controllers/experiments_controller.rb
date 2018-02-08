@@ -10,7 +10,7 @@ class ExperimentsController < ApplicationController
   	end
 
     def graph
-        #@experiment = Experiment.find(params[:id])
+        @experiment = Experiment.find(params[:experiment_id])
     end
 
 	def new

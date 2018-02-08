@@ -1,11 +1,8 @@
 class UsersController < ApplicationController
 
-  def index
-    @users = User.all
-  end
-
   def show
     @user = User.find(params[:id])
+    proper_user(@user)
   end
 
   def new
@@ -30,6 +27,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    proper_user(@user)
 
     if @user.update(user_params)
       redirect_to @user
@@ -40,6 +38,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
+    proper_user(@user)
     @user.destroy
     redirect_to users_path
   end

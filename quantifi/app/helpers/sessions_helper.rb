@@ -21,8 +21,8 @@ module SessionsHelper
     render 'sessions/unauthorized'
   end
 
-  def proper_user(user_id)
-    if session[:user_id] != user_id
+  def proper_user(user)
+    if session[:user_id] != user.id
       not_found
     end
   end

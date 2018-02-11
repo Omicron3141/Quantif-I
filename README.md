@@ -36,4 +36,4 @@ http://www.rubydoc.info/gems/chartkick/2.2.5
 https://www.railstutorial.org/book/modeling_users
 
 https://stackoverflow.com/questions/24622826/how-to-set-up-and-use-a-rails-routes-prefix
-
+https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp

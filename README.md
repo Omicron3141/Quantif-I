@@ -34,6 +34,10 @@ https://stackoverflow.com/questions/21710486/rails-bootstrap-how-to-format-form-
 https://stackoverflow.com/questions/6672454/passing-parameters-to-partial-view
 http://www.rubydoc.info/gems/chartkick/2.2.5
 https://www.railstutorial.org/book/modeling_users
-
 https://stackoverflow.com/questions/24622826/how-to-set-up-and-use-a-rails-routes-prefix
 https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
+https://stackoverflow.com/questions/5739158/rails-ruby-how-to-sort-an-array
+https://www.codewithjason.com/put-rails-modules/
+http://guides.rubyonrails.org/testing.html
+https://stackoverflow.com/questions/18728921/floats-decimals-or-integers
+

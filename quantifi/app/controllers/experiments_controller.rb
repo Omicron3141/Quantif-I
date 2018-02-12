@@ -1,12 +1,18 @@
 class ExperimentsController < ApplicationController
 
 	def index
-        @active_experiments = Experiment.where(completed: false)
-        @inactive_experiments = Experiment.where(completed: true)
+      @user = User.find(params[:user_id])
+      proper_user(@user)
+      @active_experiments = @user.experiments.where(completed: false)
+      @inactive_experiments = @user.experiments.where(completed: true)
 	end
 
 	def show
-    	@experiment = Experiment.find(params[:id])
+      @user = User.find(params[:user_id])
+      proper_user(@user)
+      @experiment = @user.experiments.find(params[:id])
+      @new_datapoint = Datapoint.new
+      @new_datapoint.measured_at = Time.now
   	end
 
     def graph
@@ -14,37 +20,47 @@ class ExperimentsController < ApplicationController
     end
 
 	def new
-		@experiment = Experiment.new
+      @user = User.find(params[:user_id])
+      proper_user(@user)
+	  @experiment = @user.experiments.new
   	end
 
   	def create
-  		@experiment = Experiment.new(experiment_params)
- 
-		if @experiment.save
-			redirect_to @experiment
-  		else
-    		render 'new'
-  		end
+      @user = User.find(params[:user_id])
+      proper_user(@user)
+  	  @experiment = @user.experiments.create(experiment_params)
+
+	  if @experiment.save
+		redirect_to user_experiment_path(@user, @experiment)
+  	  else
+    	render 'new'
+  	  end
   	end
 
 	def edit
-        @experiment = Experiment.find(params[:id])
+      @user = User.find(params[:user_id])
+      proper_user(@user)
+      @experiment = @user.experiments.find(params[:id])
 	end
+
   	def update
-	  @experiment = Experiment.find(params[:id])
-	 
+      @user = User.find(params[:user_id])
+      proper_user(@user)
+	  @experiment = @user.experiments.find(params[:id])
+
 	  if @experiment.update(experiment_params)
-	    redirect_to @experiment
+	    redirect_to user_experiment_path(@user, @experiment)
 	  else
 	    render 'edit'
 	  end
 	end
 
 	def destroy
-	  @experiment = Experiment.find(params[:id])
+      @user = User.find(params[:user_id])
+      proper_user(@user)
+	  @experiment = @user.experiments.find(params[:id])
 	  @experiment.destroy
-	 
-	  redirect_to experiments_path
+	  redirect_to user_experiments_path(@user)
 	end
 
   	private

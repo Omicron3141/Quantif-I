@@ -19,11 +19,11 @@ A simple web app that allows the user to record data in experiments and be able 
 Users should be able to:
  - Create an account
  - Log in to that account
- - Edit that account
- - View their experiments
+ - Edit that account (user name, password, and name)
+ - View their experiments (both all of their experiments and a particular experiment)
  - Create/Edit experiments
  - Log new datapoints for an experiment
- - View the data for an experiment
+ - View the data for an experiment (preferably in a easy-to-visualize way)
 
 
  ---
@@ -128,9 +128,9 @@ Experience: Most of the team had very little experience with any of the technolo
 
 
 Known Issues
- - You need to enter a new password whenever you want to change your account details - ran out of time
- - Screen layout is messed up for small screen sizes - ran out of time, could use md and sm column layout classes
- - Dropdown menu on visualize page appears in wrong place - ran out of time
+ - You need to enter a new password whenever you want to change your account details - we ran out of time to address this, but we could seperate the change password functionality from the edit user page. This might make the system harder to use, though.
+ - Screen layout is messed up for small screen sizes - we ran out of time, but we could use md and sm column layout classes from bootstrap
+ - Dropdown menu on visualize page appears in wrong place - we ran out of time, and are not sure how to fix this. It would likely just take trial and error.
 
 
 ---
@@ -138,7 +138,9 @@ Known Issues
 # Resources Used
 
 Bootstrap 5
+
 bcrypt gem
+
 chartkit gem
 
 
@@ -157,4 +159,39 @@ model-fields-in-a-ruby-on-rails-form.
 on Rails - How to Set the Default Value for a Datetime Column in Migration Script? - 
 Stack Overflow, Sept. 2017, stackoverflow.com/questions/1580805/how-to-set-the
 -default-value-for-a-datetime-column-in-migration-script. 
+
+ - e_r. “Ruby: substring to a certain length and also to last whitespace within substring.” String - 
+Ruby: substring to a certain length and also to last whitespace within substring - Stack 
+Overflow, 31 Jan. 2018, stackoverflow.com/questions/9503554/ruby-substring-to-
+A-certain-length-and-also-to-last-whitespace-within-substring.
+
+ - Ruby, Joe. “Ruby-Forum.com.” add_column :Default=>now() ? - Ruby Forum, Ruby-Forum.com, 
+24 Aug. 2006, www.ruby-forum.com/topic/78603.
+
+ - Chemist. “Rails Bootstrap how to format form_for (Width grid collapses).” Css - Rails Bootstrap 
+how to format form_for (Width grid collapses) - Stack Overflow, Stack Exchange, Inc., 
+July 2016, stackoverflow.com/questions/21710486/rails-bootstrap-how-to-format-form-
+for-width-grid-collapses. 
+
+ - jnevelson. “Passing parameters to partial view.” Ruby on rails - Passing parameters to partial 
+view - Stack Overflow, Stack Exchange, Inc., July 2016, stackoverflow.com/questions/
+6672454/passing-parameters-to-partial-view. 
+
+ - ankane. “Chartkick.” File: README - Documentation for chartkick (2.2.5), 2015, www.rubydoc.info/gems/chartkick/2.2.5. 
+Hartl, Michael. “Ruby on Rails Tutorial (Rails 5).” Softcover.io, RailsTutorial.org, www.railstutorial.org/book/modeling_users. 
+“Floats, Decimals, or Integers.” Ruby - Floats, Decimals, or Integers - Stack Overflow,
+stackoverflow.com/questions/18728921/floats-decimals-or-integers.
+
+ - “Guides.rubyonrails.org.” A Guide to Testing Rails Applications - Ruby on Rails Guides,	
+guides.rubyonrails.org/testing.html.
+
+ - “Where to Put Rails Modules.” Code with Jason, 23 Jan. 2018,	
+www.codewithjason.com/put-rails-modules/.
+
+ - “Rails, Ruby, How to Sort an Array?” Stack Overflow,	
+stackoverflow.com/questions/5739158/rails-ruby-how-to-sort-an-array.
+
+ - “How TO - Toggle Hide and Show.” How To Toggle Between Hiding And Showing an Element, www.w3schools.com/howto/howto_js_toggle_hide_show.asp.
+
+ - “How to Set up and Use a Rails Routes Prefix.” Stack Overflow, stackoverflow.com/questions/24622826/how-to-set-up-and-use-a-rails-routes-prefix.
 

@@ -30,7 +30,7 @@ class DatapointsController < ApplicationController
       @datapoint = @experiment.datapoints.find(params[:id])
 	 
 	  if @datapoint.update(datapoint_params)
-	    redirect_to user_experiment_path(@user)
+	    redirect_to user_experiment_path(@user, @experiment)
 	  else
 	    render 'edit'
 	  end

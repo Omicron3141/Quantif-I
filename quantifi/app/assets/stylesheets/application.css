@@ -22,14 +22,17 @@ body.dark-green{
 	font-family: Georgia, Times, serif;
 }
 
-a.button-orange{
+body.dark-green .button-orange{
 	background-color: #f9893e;
 	border: 1px solid #F88132;
+	color: #ffffff;
 }
 
-a.button-orange:hover{
+body.dark-green .button-orange:hover{
 	background-color: #CF5706;
 	border: 1px solid #CF5707;
+	color: #ffffff;
+
 }
 
 .footer{

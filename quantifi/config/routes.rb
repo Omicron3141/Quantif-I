@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
   get 'homepage/index'
 
-  resources :experiments do
-  	resources :datapoints
+  get    '/login',   to: 'sessions#new'
+  post   '/login',   to: 'sessions#create'
+  delete '/logout',  to: 'sessions#destroy'
+
+  resources :users do
+    resources :experiments do
+      resources :datapoints
+      get 'graph', to: 'experiments#graph', as: 'graph'
+    end
   end
 
   root 'homepage#index'

@@ -1,0 +1,64 @@
+
+<center><br>
+    <div class="jumbotron col-lg-10 col-lg-offset-1 light-green">
+
+        <div class= "dropdown" >
+            <button class ="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Options </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <button class = "dropdown-item" onclick="showLineChart()">Line Chart</button>
+                <button class = "dropdown-item" onclick="showScatterChart()">Scatter Chart</button>
+                <button class = "dropdown-item" onclick="showBarChart()">Bar Chart</button>
+            </div>
+        </div>
+        
+        <p id="test"></p>
+
+        <h1><%= @experiment.name %></h1>
+        <hr>
+            <div id="line-chart">
+            <%= line_chart Datapoint.pluck(:measured_at, :value), xtitle: "Time", ytitle: "Value"%>
+
+
+            </div>
+
+            <div id="scatter-chart" style="display:none">
+            <%= scatter_chart Datapoint.pluck(:measured_at, :value), xtitle: "Time", ytitle: "Value"%>
+            </div>
+
+            <div id="bar-chart" style="display:none">
+            <%= bar_chart Datapoint.pluck(:measured_at, :value), xtitle: "Value", ytitle: "Time"%>
+            </div>
+
+        <hr>
+       
+    </div>
+
+
+<script type="text/javascript">
+
+var line = document.getElementById("line-chart");
+var scatter = document.getElementById('scatter-chart');  
+var bar = document.getElementById("bar-chart");
+
+function showLineChart() {
+    scatter.style.display = "none";
+    bar.style.display = "none";
+    line.style.display = "block";
+}
+
+function showScatterChart() {
+    line.style.display = "none";
+    bar.style.display = "none";
+    scatter.style.display = "block";
+}
+
+function showBarChart() {
+    line.style.display = "none";
+    scatter.style.display = "none";
+    bar.style.display = "block";
+}
+
+</script>
+
+</center>
+

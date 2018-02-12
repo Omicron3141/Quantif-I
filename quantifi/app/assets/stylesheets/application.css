@@ -19,15 +19,32 @@ div.light-green {
 
 body.dark-green{
 	color: #0a1f1d;
+	font-family: Georgia, Times, serif;
 }
 
-.button-orange{
+body.dark-green .button-orange{
 	background-color: #f9893e;
 	border: 1px solid #F88132;
+	color: #ffffff;
+}
+
+body.dark-green .button-orange:hover{
+	background-color: #CF5706;
+	border: 1px solid #CF5707;
+	color: #ffffff;
+
 }
 
 .footer{
 	margin-top:-20px;
 	margin-bottom: 20px;
 	font-size: 7pt;
+}
+
+.pad-top{ 
+	margin-top:10px;
+}
+
+.navbar-im {
+	width:40px;
 }

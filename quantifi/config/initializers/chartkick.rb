@@ -1,0 +1,4 @@
+Chartkick.options = {
+
+  download: true
+}

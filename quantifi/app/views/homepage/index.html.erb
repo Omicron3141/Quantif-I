@@ -1,10 +1,14 @@
 <center><br>
 	<div class="jumbotron col-lg-10 col-lg-offset-1 light-green">
-		<h1 class="display-3">Welcome to Quantif-I</h1>
+		<h1 class="display-3">Welcome to <span class="text-nowrap"><img src="/assets/Quantifi.png" class="homepage-im">uantif-I</span></h1>
 		<h2>Record ALL the things!</h2>
 		<hr>
 		<p>Quantif-I is your solution for experimenting and personal data analysis. Is that new meditation program really helping? Does adjusing your sleep schedule make you feel better rested? How many birds really are outside your window? Quantif-I lets you keep track of your life and draw useful insights.</p>
-		<%= link_to "Learn More", { controller: 'experiments', action: 'index' }, class: "btn btn-primary btn-lg button-orange" %></p>
+		<% if logged_in? %>
+	      	<%= link_to "See My Experiments", user_experiments_path(current_user), class: "btn btn-primary btn-lg button-orange" %>
+	    <% else %>
+	      	<%= link_to "Get Started", { controller: 'sessions', action: 'new' }, class: "btn btn-primary btn-lg button-orange" %>
+	    <% end %>
 	</div>
 </center>
 

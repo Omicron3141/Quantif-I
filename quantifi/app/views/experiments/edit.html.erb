@@ -4,6 +4,6 @@
 
     	<h1>Edit Experiment</h1>
     	<hr>
-		<%= render partial: 'form', locals: {cancel_path: experiment_path(@experiment), cancel_text: "Cancel"} %>
+		<%= render partial: 'form', locals: {cancel_path: user_experiment_path(@user, @experiment), cancel_text: "Cancel"} %>
 	</div>
 </center>

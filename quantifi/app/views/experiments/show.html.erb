@@ -17,13 +17,13 @@
               </tr>
             </thead>
             <tbody>
-              <% @experiment.datapoints.each do |datapoint| %>
+              <% @experiment.datapoints.sort_by(&:measured_at).reverse.each do |datapoint| %>
                 <tr>
                   <td><%= datapoint.measured_at.strftime("%A, %b %e %Y") %></td>
                   <td><%= datapoint.measured_at.strftime("%l:%M:%S %p %Z") %></td>
                   <td class="border-right"><%= datapoint.value %></td>
-                  <td><%= link_to raw("<span class='fa fa-edit icon-link'></span>"), edit_experiment_datapoint_path(datapoint.experiment.id, datapoint.id) %></td>
-                  <td><%= link_to raw("<span class='fa fa-trash icon-link'></span>"), [datapoint.experiment, datapoint],
+                  <td><%= link_to raw("<span class='fa fa-edit icon-link'></span>"), edit_user_experiment_datapoint_path(datapoint.experiment.user.id, datapoint.experiment.id, datapoint.id) %></td>
+                  <td><%= link_to raw("<span class='fa fa-trash icon-link'></span>"), [datapoint.experiment.user, datapoint.experiment, datapoint],
                            method: :delete,
                            data: { confirm: 'Are you sure?' } %></td>
 
@@ -40,11 +40,11 @@
               <%= @experiment.description %>
             </p>
             <hr>
-            <%= link_to "Edit Experiment", edit_experiment_path(@experiment), class: "btn btn-primary btn-lg button-orange" %>
-            <%= link_to "All Experiments", experiments_path, class: "btn btn-primary btn-lg button-orange" %>
+            <%= link_to "Edit Experiment", edit_user_experiment_path(@user), class: "btn btn-primary btn-lg button-orange" %>
+            <%= link_to "All Experiments", user_experiments_path(@user), class: "btn btn-primary btn-lg button-orange" %>
             <hr>
             <h2>Record Data</h2>
-            <%= form_with(model: [ @experiment, @experiment.datapoints.build ], local: true, html: {:class => "form-horizontal", :style => "text-align: left;"})  do |form| %>
+            <%= form_with(model: [ @user, @experiment, @new_datapoint ], local: true, html: {:class => "form-horizontal", :style => "text-align: left;"})  do |form| %>
               <div class="field">
                 <%= form.label :measured_at, :class => "col-md-4 control-label"%>
                 <%= form.datetime_field :measured_at %>
@@ -58,7 +58,11 @@
                 <%= form.submit "Record", class: "btn btn-default btn-primary button-orange"%>
               </center>
             <% end %>
-          </div>
-      </div>
+          </div>  
+          <hr>
+          <div class = "col-lg-5">
+            <%= link_to "Visualize Data", user_experiment_graph_path(@user, @experiment), class: "btn btn-primary btn-lg button-orange" %>
+          </div>  
+      </div>  
   </div>
 </div>

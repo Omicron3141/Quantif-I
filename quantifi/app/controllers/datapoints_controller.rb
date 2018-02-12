@@ -1,28 +1,36 @@
 class DatapointsController < ApplicationController
 	def create
-	  @experiment = Experiment.find(params[:experiment_id])
+      @user = User.find(params[:user_id])
+      proper_user(@user)
+	  @experiment = @user.experiments.find(params[:experiment_id])
 	  @datapoint = @experiment.datapoints.create(datapoint_params)
-	  redirect_to experiment_path(@experiment)
+	  redirect_to user_experiment_path(@user, @experiment)
     end
 
     def destroy
-	  @experiment = Experiment.find(params[:experiment_id])
+	  @user = User.find(params[:user_id])
+      proper_user(@user)
+      @experiment = @user.experiments.find(params[:experiment_id])
       @datapoint = @experiment.datapoints.find(params[:id])
       @datapoint.destroy
-      redirect_to experiment_path(@experiment)
+      redirect_to user_experiment_path(@user, @experiment)
 	end
 
 	def edit
-    	@experiment = Experiment.find(params[:experiment_id])
-        @datapoint = @experiment.datapoints.find(params[:id])
+      @user = User.find(params[:user_id])
+      proper_user(@user)
+      @experiment = @user.experiments.find(params[:experiment_id])
+      @datapoint = @experiment.datapoints.find(params[:id])
 	end
 
   	def update
-	  @experiment = Experiment.find(params[:experiment_id])
+	  @user = User.find(params[:user_id])
+      proper_user(@user)
+      @experiment = @user.experiments.find(params[:experiment_id])
       @datapoint = @experiment.datapoints.find(params[:id])
 	 
 	  if @datapoint.update(datapoint_params)
-	    redirect_to @datapoint.experiment
+	    redirect_to user_experiment_path(@user, @experiment)
 	  else
 	    render 'edit'
 	  end

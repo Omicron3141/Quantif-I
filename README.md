@@ -118,21 +118,43 @@ rails server
 
 ---
 
+# Issues
+
+Git: We built our git workflow before the lectures on the subject. Out workflow of separate dev branches and testing before pushing to master worked mostly ok, but was far from perfect. In one instance, we had to create a separate feature branch so two people could work on a feature without trampling on each other’s toes or pushing to master. For future projects, we’d want to create an organization and lock the master branch behind a code review requirement
+
+Workflow: There were several times when one of us was stuck waiting for changes that someone else was working on. We often ended up working on side-tasks of lesser importance. In the future, we should improve our weekly planning to get important things done sooner, so fewer people will be blocked.
+
+Experience: Most of the team had very little experience with any of the technologies used in this project. Thus, simpler tasks took a very long time, so fewer tasks were able to be accomplished. However, we all gained experience that will be useful in future projects.
+
+
+Known Issues
+ - You need to enter a new password whenever you want to change your account details - ran out of time
+ - Screen layout is messed up for small screen sizes - ran out of time, could use md and sm column layout classes
+ - Dropdown menu on visualize page appears in wrong place - ran out of time
+
+
+---
+
 # Resources Used
 
-Bootstrap 4
-http://guides.rubyonrails.org/getting_started.html - tutorial for Ruby on Rails
-https://stackoverflow.com/questions/17147431/ruby-on-rails-joining-multiple-tables-and-how-to-extract-data - forieghne keys
-http://guides.rubyonrails.org/active_record_basics.html - model setup
-https://stackoverflow.com/questions/4736397/default-values-for-model-fields-in-a-ruby-on-rails-form
-https://stackoverflow.com/questions/1580805/how-to-set-the-default-value-for-a-datetime-column-in-migration-script
-https://stackoverflow.com/questions/9503554/ruby-substring-to-a-certain-length-and-also-to-last-whitespace-within-substring
-https://www.ruby-forum.com/topic/78603
-https://stackoverflow.com/questions/21710486/rails-bootstrap-how-to-format-form-for-width-grid-collapses
-https://stackoverflow.com/questions/6672454/passing-parameters-to-partial-view
-https://www.railstutorial.org/book/modeling_users
+Bootstrap 5
+bcrypt gem
+chartkit gem
 
-https://stackoverflow.com/questions/5739158/rails-ruby-how-to-sort-an-array
-https://www.codewithjason.com/put-rails-modules/
-http://guides.rubyonrails.org/testing.html
-https://stackoverflow.com/questions/18728921/floats-decimals-or-integers
+
+ - Claghorn, George. “Guides.rubyonrails.org.” Getting Started with Rails, RubyOnRails.org, 9 
+Feb. 2018, guides.rubyonrails.org/getting_started.html.
+
+ - user2493145. “Ruby on Rails Joining Multiple Tables and How to Extract Data.” Stack Overflow, 
+Stack Exchange, Inc., Aug. 2017, stackoverflow.com/questions/17147431/ruby-on-
+rails-joining-multiple-tables-and-how-to-extract-data. 
+
+ - Rogers, Callum. “Default Values for Model Fields in a Ruby on Rails Form.” Stack Overflow, 
+Stack Exchange, Inc., 2011, stackoverflow.com/questions/4736397/default-values-for-
+model-fields-in-a-ruby-on-rails-form. 
+
+ - Shetty, Harish. “How to Set the Default Value for a Datetime Column in Migration Script?” Ruby 
+on Rails - How to Set the Default Value for a Datetime Column in Migration Script? - 
+Stack Overflow, Sept. 2017, stackoverflow.com/questions/1580805/how-to-set-the
+-default-value-for-a-datetime-column-in-migration-script. 
+
